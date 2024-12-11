@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Drag and Drop Image</title>
+    <style>
+        #drop {
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+            background-color: lightgray;
+            position: relative;
+        }
+        #dragImage {
+            width: 100px;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img id="dragImage" src="sunny.jpg" draggable="true" ondragstart="drag(event)" alt="Draggable Image">
+    
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+        function drag(event) {
+            event.dataTransfer.setData("text/plain", event.target.src);
+        }
+        function drop(event) {
+            event.preventDefault();
+            var imageUrl = event.dataTransfer.getData("text/plain");
+            var imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.style.width = "100px";
+            event.target.appendChild(imgElement);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <label for="Name" >Enter Your Name: </label>
+        <input type="text" id="name" required><br><br>
+        <label for="Address" >Enter Your Address: </label>
+        <input type="text" id="Add" required><br><br>
+        <label for="Email" >Enter Your Mail Id:</label>
+        <input type="email" id="email" required><br><br>
+        <label for="DOB" >What is your DOB :</label>
+        <input type="date" id="dob" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+
+        document.getElementById("form").addEventListener("submit", function(event)
+        { event.preventDefault();
+
+        var email = document.getElementById("email").value;
+        var dob = document.getElementById("dob").value;
+
+        //validation
+        var emailPattern = /^[A-Za-z0-9.]+@[A-Za-z0-9.]+\.[A-Za-z]{2,}$/;
+
+        if(!emailPattern.test(email))
+    {
+        alert("Enter Proper Email");
+    }
+    
+    var birthDate=new Date(dob);
+    var Age = Math.floor((new Date() - birthDate) / (365.25 * 24* 60 * 60 * 1000));
+
+    if(Age < 22)
+    {
+        alert("You Are Underage");
+        return;
+    }
+       });
+    </script>
+</body>
+</html>

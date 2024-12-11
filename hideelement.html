@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">This is Heading 1</h1>
+    <p id="p"> This is My Paragraph</p>
+    <button onclick="hide()">Hide Content</button>
+
+    <script>
+        function hide(){
+            document.getElementById("h1").hidden=true;
+            document.getElementById("p").style.display= "none";
+        }
+    </script>
+</body>
+</html>
