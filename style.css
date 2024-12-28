@@ -1,0 +1,26 @@
+
+#animate{
+    border: 2px solid black;
+    background-color: hotpink;
+    height:200px;
+    width:400px;
+    border-radius: 25px;
+    animation-name: try; 
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes try{
+
+    from{
+        transform: translateX(0%);
+        background-color:mediumslateblue;  
+    }
+    to{
+        transform: translateX(200%);
+        background-color: hotpink;
+        height: 250px;
+    }
+}
