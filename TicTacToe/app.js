@@ -9,6 +9,7 @@ const msg = document.querySelector("#msg");
 
 
 let Clickcount = 0;
+let isWinnerDeclared = false;
 
 /**We have to decide the player turn that is to decide 
  * whether to add "O" or "X" to the table*/
@@ -53,7 +54,7 @@ btn.forEach( (btn) => {
         Clickcount++;
 
         checkWinner();
-        if(Clickcount === 9)
+        if(Clickcount === 9 && !isWinnerDeclared )
         {
             showDraw();
         }
@@ -66,7 +67,7 @@ btn.forEach( (btn) => {
  */
 
 const showWinner = (winner) => {
-
+    isWinnerDeclared = true;
     msg.innerText =`Congratulations, Winner is: ${winner}`;
     msgContainer.classList.remove("hide");
     disableBoxes(); //To prevent remaining boxes clicking
@@ -75,6 +76,7 @@ const showWinner = (winner) => {
 /** Here we are writing a fucnction for Draw Condition */
 
 const showDraw = () => {
+    Clickcount = 0;
      msg.innerText ="The match Is Draw !";
      msgContainer.classList.remove("hide");
     disableBoxes(); //To prevent remaining boxes clicking
@@ -128,6 +130,8 @@ const reset = () => {
     turn = true;
     enableBoxes();
     msgContainer.classList.add("hide");
+    Clickcount = 0;
+    isWinnerDeclared = false;
 };
 
 //This above function will trigger when we hit newGame or reset Button
