@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="stylecss">
+    </head>
+<body>
+    <form onsubmit="return validateForm()" name="myForm">
+        <h1>Registration Form</h1>
+        <label for="fname">Full Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter your Full Name">
+        <p class="error" id="fname-error"></p>
+
+        <label for="Birth">Date of Birth:*</label>
+        <input type="date" id="Birth" name="birthday">
+        <p class="error" id="birth-error"></p>
+
+        <label for="">Gender:</label>
+        <div class="gender-group">
+            <input type="radio" name="Gender" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="Gender" id="female" value="female">
+            <label for="female">Female</label>
+            <input type="radio" name="Gender" id="other" value="other">
+            <label for="other">Other</label>
+        </div>
+        <p class="error" id="gender-error"></p>
+
+        <label for="">Email:</label>
+        <input type="email" placeholder="Enter Email" name="email">
+        <p class="error" id="email-error"></p>
+
+        <label for="">Password:</label>
+        <input type="password" placeholder="Enter password" name="psw">
+        <p class="error" id="password-error"></p>
+
+        <label for="">Re-Password:</label>
+        <input type="password" placeholder="Repeat password" name="repsw">
+        <p class="error" id="repassword-error"></p>
+
+        <label for="state">State:</label>
+        <select name="state" id="state" onchange="populateCities()">
+            <option value="Select">Select</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Goa">Goa</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Rajasthan">Rajasthan</option>
+        </select>
+        <p class="error" id="state-error"></p>
+
+        <label for="city">Choose a city:</label>
+        <select name="city" id="city">
+            <option value="Select">Select</option>
+        </select>
+        <p class="error" id="city-error"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+<script src="app.js"></script>
+</body>
+</html>

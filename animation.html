@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+<p>Control the box:</p> 
+<button onclick="myMove('up')">Up</button>
+<button onclick="myMove('down')">Down</button>
+<button onclick="myMove('left')">Left</button>
+<button onclick="myMove('right')">Right</button>
+<button onclick="stopMovement()">Stop</button>
+
+<div id="container">
+  <div id="animate"></div>
+</div>
+
+<script>
+const animateBox = document.getElementById("animate");
+let posTop = 0;
+let posLeft = 0;
+let moveInterval;
+
+function myMove(direction) {
+    stopMovement(); // Stop any ongoing movement
+
+    moveInterval = setInterval(() => {
+        switch (direction) {
+            case 'up':
+                if (posTop > 0) posTop -= 5;
+                break;
+            case 'down':
+                if (posTop < 350) posTop += 5;
+                break;
+            case 'left':
+                if (posLeft > 0) posLeft -= 5;
+                break;
+            case 'right':
+                if (posLeft < 350) posLeft += 5;
+                break;
+        }
+        animateBox.style.top = posTop + "px";
+        animateBox.style.left = posLeft + "px";
+    }, 50);
+}
+
+function stopMovement() {
+    clearInterval(moveInterval);
+}
+</script>
+
+</body>
+</html>
