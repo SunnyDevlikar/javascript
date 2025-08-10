@@ -6,7 +6,7 @@ let block3 = document.getElementById("three");
 let block4 = document.getElementById("four");
 
 
-let userScore = 0;
+let userScore =0;
 let compScore = 0;
 let userWin = true;
 
